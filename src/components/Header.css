@@ -1,0 +1,134 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+.header.scrolled {
+  background: rgba(33, 32, 48, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-smooth);
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.05);
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 2.5rem;
+  justify-self: center;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text-light);
+  opacity: 0.8;
+  position: relative;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a:focus {
+  color: var(--color-primary);
+}
+
+.header-cta {
+  display: none;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-self: flex-end;
+}
+
+.mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  .header-cta {
+    display: inline-flex;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
