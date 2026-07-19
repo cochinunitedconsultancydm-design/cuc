@@ -4,6 +4,7 @@ import logoImg from '../assets/logo.png';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +21,7 @@ const Header = () => {
           <img src={logoImg} alt="Cochin United" className="logo-img" />
         </a>
         
-        <nav className="desktop-nav">
+        <nav className={`desktop-nav ${isMenuOpen ? 'mobile-open' : ''}`}>
           <a href="#home" className="nav-link">Home</a>
           <a href="#about" className="nav-link">About us</a>
           <a href="#services" className="nav-link">Services +</a>
@@ -33,7 +34,11 @@ const Header = () => {
         <div className="header-right">
           <a href="#contact" className="btn-primary header-cta">Enquire Now &rarr;</a>
           
-          <button className="mobile-toggle" aria-label="Toggle menu">
+          <button 
+            className={`mobile-toggle ${isMenuOpen ? 'open' : ''}`} 
+            aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <span></span>
             <span></span>
             <span></span>

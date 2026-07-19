@@ -91,8 +91,51 @@
 .mobile-toggle span {
   width: 24px;
   height: 2px;
-  background: var(--color-text);
+  background: var(--color-text-light);
   transition: all 0.3s ease;
+  transform-origin: left center;
+}
+
+.mobile-toggle.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 991px) {
+  .desktop-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: rgba(33, 32, 48, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 2rem;
+    gap: 1.5rem;
+    box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+    justify-self: unset;
+  }
+  
+  .desktop-nav.mobile-open {
+    left: 0;
+  }
+  
+  .mobile-toggle {
+    z-index: 1001;
+  }
 }
 
 @media (min-width: 992px) {
