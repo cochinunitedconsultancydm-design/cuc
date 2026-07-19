@@ -169,9 +169,3 @@
 .nav-link:hover::after {
   width: 100%;
 }
-
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-}
