@@ -1,7 +1,8 @@
 import React from 'react';
-import { Users, Briefcase, Award, ShieldCheck } from 'lucide-react';
 import './Hero.css';
 import heroBg from '../assets/hero-bg.png';
+import logoImg from '../assets/logo.png';
+import Stats from './Stats';
 
 const Hero = () => {
   return (
@@ -11,8 +12,12 @@ const Hero = () => {
       
       <div className="container hero-container">
         <div className="hero-content">
+          <div className="hero-logo-wrapper animate-fade-in-up">
+            <img src={logoImg} alt="CUC Logo" className="hero-content-logo" />
+            <div className="hero-logo-text text-gradient">Consultancy</div>
+          </div>
           <h1 className="hero-title animate-fade-in-up">
-            Consultancy & Services for <span className="text-gradient">Individuals & Businesses</span>
+            Your Trusted Consultancy Services for <span className="text-gradient">Individuals, Startups and Businesses</span>
           </h1>
           <p className="hero-subtitle animate-fade-in-up delay-100">
             Expert documentation, business registrations, and compliance planning tailored for your success.
@@ -22,36 +27,8 @@ const Hero = () => {
             <a href="#about" className="btn-outline">Who We Are</a>
           </div>
         </div>
-        
         <div className="hero-stats">
-          <div className="stat-box glass-panel animate-fade-in-up delay-100">
-            <div className="stat-icon"><Users size={28} /></div>
-            <div className="stat-info">
-              <h4>1000+</h4>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-          <div className="stat-box glass-panel animate-fade-in-up delay-200">
-            <div className="stat-icon"><Briefcase size={28} /></div>
-            <div className="stat-info">
-              <h4>200+</h4>
-              <p>Services Offered</p>
-            </div>
-          </div>
-          <div className="stat-box glass-panel animate-fade-in-up delay-300">
-            <div className="stat-icon"><Award size={28} /></div>
-            <div className="stat-info">
-              <h4>10+</h4>
-              <p>Years Experience</p>
-            </div>
-          </div>
-          <div className="stat-box glass-panel animate-fade-in-up delay-400">
-            <div className="stat-icon"><ShieldCheck size={28} /></div>
-            <div className="stat-info">
-              <h4>100%</h4>
-              <p>Satisfaction</p>
-            </div>
-          </div>
+          <Stats />
         </div>
       </div>
     </section>

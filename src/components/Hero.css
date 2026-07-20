@@ -1,10 +1,10 @@
 .hero {
   position: relative;
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 140px);
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
 .hero-bg-image {
@@ -35,105 +35,97 @@
 }
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   z-index: 2;
   position: relative;
   width: 100%;
-}
-
-@media (min-width: 992px) {
-  .hero-container {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
-  }
+  gap: 4rem;
 }
 
 .hero-content {
-  max-width: 700px;
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-stats {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .hero-content {
+    flex: 1.2;
+    max-width: 650px;
+    min-height: auto;
+    display: block;
+    text-align: left;
+  }
+
+  .hero-stats {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+.hero-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.hero-content-logo {
+  height: 150px;
+  width: auto;
+  margin-bottom: 0.75rem;
+  object-fit: contain;
+}
+
+.hero-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 0.3em;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   letter-spacing: -1px;
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--color-text-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   font-weight: 400;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .hero-cta {
   display: flex;
+  justify-content: flex-start;
   gap: 1.5rem;
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  perspective: 1000px;
-}
-
-.stat-box {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.25rem 1.25rem;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.stat-box:hover {
-  transform: translateY(-10px) scale(1.03);
-  border-color: rgba(247, 183, 27, 0.5);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-@media (min-width: 992px) {
-  .stat-box:nth-child(2),
-  .stat-box:nth-child(4) {
-    transform: translateY(30px);
-  }
-  
-  .stat-box:nth-child(2):hover,
-  .stat-box:nth-child(4):hover {
-    transform: translateY(20px) scale(1.03);
-  }
-}
-
-.stat-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  background: rgba(247, 183, 27, 0.15);
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(247, 183, 27, 0.2);
-}
-
-.stat-info h4 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 0.1rem;
-  color: var(--color-text-light);
-  line-height: 1.1;
-}
-
-.stat-info p {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
-  margin: 0;
 }
 
 @keyframes float {
@@ -143,26 +135,40 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 2rem;
+    min-height: calc(100vh - 140px);
+    padding-top: 0;
     padding-bottom: 4rem;
+    align-items: flex-start;
+  }
+  .hero-content {
+    min-height: auto;
+    padding-top: 12vh;
+    margin-bottom: 25vh;
+    text-align: center;
+    align-items: center;
+  }
+  .hero-logo-wrapper {
+    align-items: center;
+  }
+  .hero-content-logo {
+    height: 100px;
+    margin-bottom: 0.5rem;
+  }
+  .hero-logo-text {
+    font-size: 1rem;
+    padding-left: 0.3em;
   }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
   .hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
   }
   .hero-cta {
     flex-direction: column;
-  }
-  .hero-stats {
-    gap: 1rem;
-  }
-  .stat-box {
-    padding: 1.25rem 1rem;
-  }
-  .stat-info h4 {
-    font-size: 1.8rem;
+    align-items: center;
   }
 }
